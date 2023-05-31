@@ -1,0 +1,22 @@
+﻿@model TecnologiaModel
+
+@{
+    ViewData["Title"] = "Criar tecnologia";
+}
+
+<div class="text-center">
+
+    <h3 class="display-4">Criar Tecnologia</h3>
+
+</div>
+
+<form id="form" class="mx-auto w-75" asp-controller="Tecnologia" asp-action="Criar" method="post">
+    <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" asp-for="Nome" class="form-control" id="name" placeholder="Digite o nome da Tecnologia">
+    </div>
+    <div class="d-flex justify-content-around p-3">
+        <button type="submit" class="btn btn-primary w-25">Próximo</button>
+        <a role="button" class="btn btn-secondary w-25" asp-controller="Tecnologia" asp-action="TecnologiaVaga">Voltar</a>
+    </div>
+</form>

@@ -1,0 +1,34 @@
+﻿@model TecnologiaViewModel
+
+@{
+    ViewData["Title"] = "Tecnologia - Vaga";
+}
+
+<div class="text-center">
+    <h3 class="display-4">Relação Tecnologia - Vaga</h3>
+    <h3 class="display-4">@Model.Nome</h3>
+
+    <form id="form" class="mx-auto w-50" asp-controller="Tecnologia" asp-action="AtualizarPeso" method="post">
+        @if (Model.Vagas != null && Model.Vagas.Any())
+        {
+            foreach(var vaga in Model.Vagas)
+            {
+                <label for="pesoTecs @vaga.Nome">
+                    @vaga.Nome
+                </label>
+                <select class="form-select w-50 mx-auto" name="pesoTecs" id="pesoTecs @vaga.Nome">
+                    <option selected> - Selecione uma Opção -</option>
+                    <option value="@vaga.Id @Model.Id 2">Baixo</option>
+                    <option value="@vaga.Id @Model.Id 5">Médio</option>
+                    <option value="@vaga.Id @Model.Id 8">Alto</option>
+                </select>
+            }
+        }
+        <div class="d-flex justify-content-around p-3">
+            <button type="submit" class="btn btn-primary w-25">Próximo</button>
+        </div>
+    </form>
+    <div class="d-flex justify-content-center">
+        <a role="button" class="btn btn-primary" asp-controller="Tecnologia" asp-action="Index"> Voltar Para Listagem </a>
+    </div>
+</div>

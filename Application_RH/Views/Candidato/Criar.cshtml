@@ -1,0 +1,51 @@
+﻿@model CandidatoViewModel
+
+@{
+    ViewData["Title"] = "Cadastrar candidato";
+}
+
+<div class="text-center">
+
+    <h3 class="display-4">Cadastrar Candidato</h3>
+
+</div>
+
+<form id="form" class="mx-auto w-75" asp-controller="Candidato" asp-action="Criar" method="post">
+    <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" asp-for="Nome" class="form-control" id="name" placeholder="Digite o nome do candidato">
+    </div>
+    <div class="form-group">
+        <label for="contact">Contato</label>
+        <input type="text" asp-for="Contato" class="form-control" id="contact" placeholder="Digite o número do candidato">
+    </div>
+    <hr />
+    <p class="h3">Vagas disponíveis: </p>
+    @if (Model != null && Model.Vagas.Any())
+    {
+        @foreach (var item in Model.Vagas)
+        {
+            <input class="form-check-input" id="@item.Nome" type="radio" asp-for="Vaga" value="@item.Nome|@item.Id" />
+            <label class="form-check-label" for="@item.Nome">@item.Nome</label>
+        }
+    }
+    <hr />
+    <p class="h3">Tecnologias da empresa: </p>
+    @if (Model != null && Model.Tecnologias.Any())
+    {
+        @foreach (var item in Model.Tecnologias)
+        {
+            <div>
+                <input class="form-check-input" id="@item.Nome" name="StringTecnologias" type="checkbox" value="@item.Nome @item.Id">
+                <label class="form-check-label" for="@item.Nome">
+                    @item.Nome
+                </label>
+            </div>
+        }
+    }
+    <div class="d-flex justify-content-around p-3">
+        <button type="submit" class="btn btn-primary w-25">Criar</button>
+        <a role="button" class="btn btn-secondary w-25" asp-controller="Candidato" asp-action="Index">Voltar</a>
+    </div>
+
+</form>

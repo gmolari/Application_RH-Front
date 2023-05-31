@@ -1,0 +1,22 @@
+﻿@model VagaModel
+
+@{
+    ViewData["Title"] = "Criar vaga";
+}
+
+<div class="text-center">
+
+    <h3 class="display-4">Criar Vaga</h3>
+
+</div>
+
+<form id="form" asp-controller="Vaga" asp-action="Criar" method="post">
+    <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" asp-for="Nome" class="form-control" id="name" placeholder="Digite o nome da Vaga">
+    </div>
+    <div class="d-flex justify-content-around p-3">
+        <button type="submit" class="btn btn-primary w-25">Criar</button>
+        <a role="button" class="btn btn-secondary w-25" asp-controller="Vaga" asp-action="Index">Voltar</a>
+    </div>
+</form>

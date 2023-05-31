@@ -1,0 +1,18 @@
+﻿@model CandidatoViewModel
+
+@{
+    ViewData["Title"] = "Candidato";
+}
+
+<div class="text-center">
+    <h3 class="display-4">Candidato @Model.Nome</h3>
+
+    <p>Contato: @Model.Contato</p>
+    <p>Concorrendo à Vaga: @Model.Vaga</p>
+    <p>Tecnologias conhecidas: @Model.Tecnologias</p>
+
+
+    <div class="d-flex justify-content-center">
+        <a role="button" class="btn btn-primary" asp-controller="Candidato" asp-action="Index"> Voltar Para Listagem </a>
+    </div>
+</div>
